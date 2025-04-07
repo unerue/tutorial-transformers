@@ -1,0 +1,33 @@
+[project]
+name = "tutorial-transformers"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "accelerate>=1.6.0",
+    "datasets>=3.5.0",
+    "jupyter>=1.1.1",
+    "pandas>=2.2.3",
+    "protobuf>=6.30.2",
+    "scikit-learn>=1.6.1",
+    "sentencepiece>=0.2.0",
+    "torch>=2.6.0",
+    "transformers[torch]>=4.51.0",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu124", marker = "sys_platform == 'win32'" },  # Windows용 CUDA 버전
+]
+torchvision = [
+    { index = "pytorch-cu124", marker = "sys_platform == 'win32'" },
+]
+torchaudio = [
+    { index = "pytorch-cu124", marker = "sys_platform == 'win32'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
